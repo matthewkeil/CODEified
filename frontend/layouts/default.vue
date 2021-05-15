@@ -1,23 +1,13 @@
 <template>
-  <v-app dark>
-    <div class="app-container">
-      <v-app-bar :clipped-left="clipped">
-        <v-toolbar-title v-text="title" />
-        <v-spacer />
-        <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-          <v-icon>mdi-menu</v-icon>
-        </v-btn>
-      </v-app-bar>
-      <v-main>
-        <v-container>
-          <nuxt />
-        </v-container>
-      </v-main>
-      <v-footer>
-        <span>&copy; {{ new Date().getFullYear() }}</span>
-      </v-footer>
+  <base-header>
+    <div slot="links">
+      <nuxt-link v-for="link of links" :key="link.text" :href="link.href">
+        <button type="button">
+          {{ link.text }}
+        </button>
+      </nuxt-link>
     </div>
-  </v-app>
+  </base-header>
 </template>
 
 <script>

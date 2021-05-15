@@ -1,6 +1,7 @@
 import { resolve } from 'path'
-import colors from 'vuetify/es5/util/colors'
+import tailwindTypography from '@tailwindcss/typography'
 import FMMode from 'frontmatter-markdown-loader/mode'
+// import colors from 'vuetify/es5/util/colors'
 // import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 
 export default {
@@ -39,9 +40,10 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
+    // https://go.nuxtjs.dev/vuetify
+    // '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -59,24 +61,30 @@ export default {
   content: {},
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-        },
-      },
+  // vuetify: {
+  //   customVariables: ['~/assets/variables.scss'],
+  //   theme: {
+  //     dark: true,
+  //     themes: {
+  //       dark: {
+  //         primary: colors.blue.darken2,
+  //         accent: colors.grey.darken3,
+  //         secondary: colors.amber.darken3,
+  //         info: colors.teal.lighten1,
+  //         warning: colors.amber.base,
+  //         error: colors.deepOrange.accent4,
+  //         success: colors.green.accent3,
+  //       },
+  //     },
+  //   },
+  // },
+
+  tailwindcss: {
+    exposeConfig: true,
+    config: {
+      plugins: [tailwindTypography],
     },
   },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     babel: {
